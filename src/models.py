@@ -23,6 +23,8 @@ class Characters(db.Model):
     __tablename__ = 'characters'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
+    planet_from = db.Column(db.String(120), unique=True, nullable=False)
+    birth_year = db.Column(db.String)
 
     def __repr__(self):
         return '<Character %r>' % self.name
@@ -31,12 +33,17 @@ class Characters(db.Model):
         return {
             "id": self.id,
             "name": self.name,
+            "planet_from": self.planet_from,
+            "birth_year": self.birth_year
         }
 
 class Planets(db.Model):
     __tablename__ = 'planets'
     planet_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
+    diameter = db.Column(db.Integer)
+    population = db.Column(db.Integer)
+    climate = db.Column(db.String(120))
 
     def __repr__(self):
         return '<Planet %r>' % self.name
@@ -45,20 +52,29 @@ class Planets(db.Model):
         return {
             "id": self.id,
             "name": self.name,
+            "diameter": self.diameter,
+            "population": self.population,
+            "climate": self.climate,
         }       
 
 class Vehicles(db.Model):
     __tablename__ = 'vehicles'
     vehicle_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
+    model = db.Column(db.String(120))
+    crew = db.Column(db.Integer)
+    vehicle_class = db.Column(db.String(120))
 
     def __repr__(self):
         return '<Vehicle %r>' % self.name
         
     def serialize(self):
         return {
-            "id": self.id,
             "name": self.name,
+            "vehicle_id": self.vehicle_id,
+            "model": self.model,
+            "crew": self.crew,
+            "vehicle_class": self.vehicle_class
         }       
 
 class Favorites(db.Model):

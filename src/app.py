@@ -26,38 +26,77 @@ db.init_app(app)
 CORS(app)
 setup_admin(app)
 
-characters = [ 
-    {  
-        "id": 1,  
-        "name": 'Luke Skywalker'  
-        } ,
+user = [
     {
-        "id": 2,
-        "name": 'Darth Vader'
+        'id' : 1,
+        'name' : 'Joe Shmoe',
+        'email' : 'JBoogie@aol.com',      
+    },    
+
+    {
+        'id' : 2,
+        'name' : 'Jane Doe',
+        'email' : 'JDoeADeer95@gmail.com',   
+    }
+]
+
+characters = [
+    {
+        'id': 1,
+        'name': 'Luke Skywalker',
+        'planet_from': 'Tatooine',
+        'birth_year': '19 BBY'
+    },
+
+    {
+        'id': 2,
+        'name': 'Darth Vader',
+        'planet_from': 'Tatooine',
+        'birth_year': '41 BBY'
     }
 ]
 
 planets = [
     {
-        "id": 1,
-        "name": 'Tatooine'
+        "planet_id": 1,
+        "name": 'Tatooine',
+        'diameter': '10465',
+        'population': '200000',
+        'climate': 'arid',
         },
     {
-        "id": 2,
-        "name": 'Mustafar'
-    }   
+        "planet_id": 2,
+        "name": 'Naboo',
+        'diameter': '10465',
+        'population': '4500000000',
+        'climate': 'temperate',
+    }
 ]
 
 vehicles = [
     {
-        "id": 1,
-        "name": 'Tatooine'
+        "vehicle_id": '001',
+        "name": 'Sand Crawler',
+        "model": 'Digger Crawler',
+        "crew": '46',
         },
     {
-        "id": 2,
-        "name": 'Mustafar'
+        "vehicle_id": '002',
+        "name": 'T-16 skyhopper',
+        'crew': '1',
     }   
 ]
+
+favorites = [
+      {
+        'date_added': '12/01/2022',
+        'user_id': '2',
+        'favorite_characters': 'Luke Skywalker',
+        'favorite_planets': 'Naboo',
+        'favorite_vehicles': 'car'
+    }
+]
+
 
 
 # Handle/serialize errors like a JSON object
